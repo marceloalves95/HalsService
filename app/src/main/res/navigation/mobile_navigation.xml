@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_cliente">
+
+    <fragment
+        android:id="@+id/navigation_cliente"
+        android:name="br.com.halsservice.presenter.ui.cliente.ClienteFragment"
+        android:label="@string/title_cliente"
+        tools:layout="@layout/fragment_cliente" >
+        <action
+            android:id="@+id/action_navigation_cliente_to_navigation_cadastro_cliente"
+            app:destination="@id/navigation_cadastro_cliente" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_servico"
+        android:name="br.com.halsservice.presenter.ui.servico.ServicoFragment"
+        android:label="@string/title_servico"
+        tools:layout="@layout/fragment_servico" >
+        <action
+            android:id="@+id/action_navigation_servico_to_navigation_cadastro_servico"
+            app:destination="@id/navigation_cadastro_servico" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_cadastro_cliente"
+        android:name="br.com.halsservice.presenter.ui.cadastrocliente.CadastroClienteFragment"
+        android:label="@string/title_cadastro_cliente"
+        tools:layout="@layout/cadastro_cliente_fragment" >
+        <action
+            android:id="@+id/action_navigation_cadastro_cliente_to_navigation_cliente"
+            app:destination="@id/navigation_cliente" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_cadastro_servico"
+        android:name="br.com.halsservice.presenter.ui.cadastroservico.CadastroServicoFragment"
+        android:label="@string/title_cadastro_servico"
+        tools:layout="@layout/cadastro_servico_fragment" >
+
+        <action
+            android:id="@+id/action_navigation_cadastro_servico_to_navigation_servico"
+            app:destination="@id/navigation_servico" />
+    </fragment>
+
+</navigation>

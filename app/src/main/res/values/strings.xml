@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">Hals Service</string>
+    <string name="title_cliente">Cliente</string>
+    <string name="title_servico">Serviço</string>
+    <string name="textview">TextView</string>
+    <string name="title_cadastro_cliente">Cadastro de Clientes</string>
+    <string name="nome">Nome</string>
+    <string name="endereco">Endereço</string>
+    <string name="numero">Número</string>
+    <string name="bairro">Bairro</string>
+    <string name="telefone">Telefone</string>
+    <string name="cadastrar_cliente">Cadastro de Clientes</string>
+    <string name="title_cadastro_servico">Cadastrar Serviço</string>
+    <string name="descricao_servico">Descrição do Serviço</string>
+    <string name="tipo_servico">Tipo de Serviço</string>
+    <string name="garantia">Garantia</string>
+    <string name="valor_servico">Valor do Serviço</string>
+    <string name="data_reparo">Data de Reparo</string>
+    <string name="cadastrar_servico">Cadastrar Serviço</string>
+    <string name="todo">TODO</string>
+    <string name="busca">Busca</string>
+    <string name="busca_cep">Digite o seu CEP</string>
+    <string-array name="list_servicos">
+        <item>Fogão</item>
+        <item>Geladeira</item>
+        <item>Lava-Louça</item>
+        <item>Lava-Roupa</item>
+        <item>Micro-ondas</item>
+        <item>Secadora</item>
+    </string-array>
+    <string-array name="list_garantia">
+        <item>3 Meses</item>
+        <item>6 Meses</item>
+        <item>12 Meses</item>
+    </string-array>
+</resources>
