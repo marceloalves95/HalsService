@@ -1,4 +1,4 @@
-package br.com.halsservice.presenter
+package br.com.halsservice.presenter.ui.main
 
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView

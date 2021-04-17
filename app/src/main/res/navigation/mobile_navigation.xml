@@ -27,19 +27,18 @@
 
     <fragment
         android:id="@+id/navigation_cadastro_cliente"
-        android:name="br.com.halsservice.presenter.ui.cadastrocliente.CadastroClienteFragment"
+        android:name="br.com.halsservice.presenter.ui.cliente.CadastroClienteFragment"
         android:label="@string/title_cadastro_cliente"
-        tools:layout="@layout/cadastro_cliente_fragment" >
+        tools:layout="@layout/fragment_cadastro_cliente" >
         <action
             android:id="@+id/action_navigation_cadastro_cliente_to_navigation_cliente"
             app:destination="@id/navigation_cliente" />
     </fragment>
     <fragment
         android:id="@+id/navigation_cadastro_servico"
-        android:name="br.com.halsservice.presenter.ui.cadastroservico.CadastroServicoFragment"
+        android:name="br.com.halsservice.presenter.ui.servico.CadastroServicoFragment"
         android:label="@string/title_cadastro_servico"
-        tools:layout="@layout/cadastro_servico_fragment" >
-
+        tools:layout="@layout/fragment_cadastro_servico" >
         <action
             android:id="@+id/action_navigation_cadastro_servico_to_navigation_servico"
             app:destination="@id/navigation_servico" />

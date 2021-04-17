@@ -9,34 +9,38 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import br.com.halsservice.R
-import br.com.halsservice.framework.viewmodel.ServicoViewModel
+import br.com.halsservice.databinding.FragmentClienteBinding
+import br.com.halsservice.databinding.FragmentServicoBinding
+import br.com.halsservice.framework.viewmodel.servico.ServicoViewModel
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class ServicoFragment : Fragment() {
 
-    private lateinit var servicoViewModel: ServicoViewModel
+    private var _binding: FragmentServicoBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
-        servicoViewModel =
-                ViewModelProvider(this).get(ServicoViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_servico, container, false)
 
-        servicoViewModel.text.observe(viewLifecycleOwner, Observer {
+        _binding = FragmentServicoBinding.inflate(inflater, container, false)
 
-        })
-        return root
+        return binding.root
+
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        view.findViewById<FloatingActionButton>(R.id.fab).setOnClickListener {
+        binding.fab.setOnClickListener {
 
             findNavController().navigate(R.id.action_navigation_servico_to_navigation_cadastro_servico)
+
         }
 
+
     }
+
 }

@@ -3,12 +3,12 @@
 
     <item
         android:id="@+id/navigation_cliente"
-        android:icon="@drawable/account"
+        android:icon="@drawable/ic_account"
         android:title="@string/title_cliente" />
 
     <item
         android:id="@+id/navigation_servico"
-        android:icon="@drawable/toolbox_outline"
+        android:icon="@drawable/ic_toolbox_outline"
         android:title="@string/title_servico" />
 
 
