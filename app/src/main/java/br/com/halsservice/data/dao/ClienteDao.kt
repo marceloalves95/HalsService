@@ -3,7 +3,6 @@ package br.com.halsservice.data.dao
 import androidx.room.*
 import br.com.halsservice.domain.Cliente
 import br.com.halsservice.domain.ClienteAndServico
-import br.com.halsservice.domain.Servico
 
 @Dao
 interface ClienteDao {
@@ -14,11 +13,13 @@ interface ClienteDao {
     suspend fun update(cliente: Cliente)
     @Query("DELETE FROM cliente WHERE clienteId IN (:id)")
     suspend fun deleteAll(id:MutableList<Long>)
-    @Query("SELECT * FROM cliente" )
+    @Query("SELECT * FROM cliente")
     suspend fun getAll(): MutableList<Cliente>
-    @Transaction
-    @Query("SELECT * FROM cliente" )
-    suspend fun getClienteAndServico():MutableList<ClienteAndServico>
+    @Query("SELECT clienteId FROM cliente WHERE nome = :nome")
+    suspend fun getIdCliente(nome:String):Long
+    @Query("SELECT nome FROM cliente")
+    suspend fun getNomesClientes():MutableList<String>
+
 
 
 }

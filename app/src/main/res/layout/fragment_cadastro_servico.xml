@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presenter.ui.servico.CadastroServicoFragment">
+    >
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".ui.servico.CadastroServicoFragment">
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/campo_cliente"
@@ -41,26 +46,30 @@
         app:startIconDrawable="@drawable/ic_note_edit">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/servico"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout9"
+        android:id="@+id/campo_valor_servico"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:hint="@string/valor_servico"
         app:endIconMode="clear_text"
-        app:layout_constraintEnd_toEndOf="@+id/textInputLayout7"
-        app:layout_constraintStart_toStartOf="@+id/textInputLayout7"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout7"
+        app:layout_constraintEnd_toEndOf="@+id/campo_garantia"
+        app:layout_constraintStart_toStartOf="@+id/campo_garantia"
+        app:layout_constraintTop_toBottomOf="@+id/campo_garantia"
         app:startIconDrawable="@drawable/ic_cash">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/valor_servico"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            />
     </com.google.android.material.textfield.TextInputLayout>
 
     <androidx.constraintlayout.widget.Guideline
@@ -71,27 +80,26 @@
         app:layout_constraintGuide_percent="0.60" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout10"
+        android:id="@+id/campo_data_reparo"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:layout_marginEnd="5dp"
         android:hint="@string/data_reparo"
-        app:endIconMode="clear_text"
         app:layout_constraintEnd_toEndOf="@id/guideline"
-        app:layout_constraintStart_toStartOf="@+id/textInputLayout9"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout9"
+        app:layout_constraintStart_toStartOf="@+id/campo_valor_servico"
+        app:layout_constraintTop_toBottomOf="@+id/campo_valor_servico"
         app:startIconDrawable="@drawable/ic_calendar_today">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edit_text_reparo"
+            android:id="@+id/data_reparo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout6"
+        android:id="@+id/campo_tipo_servico"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
@@ -103,31 +111,33 @@
         app:layout_constraintTop_toBottomOf="@+id/campo_descricao_servico">
 
         <com.google.android.material.textfield.MaterialAutoCompleteTextView
+            android:id="@+id/tipo_servico"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout7"
+        android:id="@+id/campo_garantia"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:hint="@string/garantia"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
         app:startIconDrawable="@drawable/ic_washing_machine"
-        app:layout_constraintEnd_toEndOf="@+id/textInputLayout6"
-        app:layout_constraintStart_toStartOf="@+id/textInputLayout6"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout6">
+        app:layout_constraintEnd_toEndOf="@+id/campo_tipo_servico"
+        app:layout_constraintStart_toStartOf="@+id/campo_tipo_servico"
+        app:layout_constraintTop_toBottomOf="@+id/campo_tipo_servico">
 
         <com.google.android.material.textfield.MaterialAutoCompleteTextView
+            android:id="@+id/garantia"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/imageButton"
+        android:id="@+id/calendario"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:contentDescription="@string/todo"
@@ -139,26 +149,29 @@
         android:layout_marginTop="5dp"
         android:background="@drawable/button_selector"
         android:text="@string/calendario"
-        app:layout_constraintBottom_toBottomOf="@+id/textInputLayout10"
-        app:layout_constraintEnd_toEndOf="@+id/textInputLayout9"
+        app:layout_constraintBottom_toBottomOf="@+id/campo_data_reparo"
+        app:layout_constraintEnd_toEndOf="@+id/campo_valor_servico"
         app:layout_constraintStart_toStartOf="@id/guideline"
-        app:layout_constraintTop_toTopOf="@+id/textInputLayout10" />
+        app:layout_constraintTop_toTopOf="@+id/campo_data_reparo" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/cadastro_atualizacao_servico"
         style="@style/MeuBotao"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="8dp"
         android:background="@drawable/button_selector"
         android:text="@string/cadastrar_servico"
         app:icon="@drawable/ic_content_save"
         app:iconGravity="textStart"
         app:iconPadding="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/imageButton"
-        app:layout_constraintStart_toStartOf="@+id/textInputLayout10" />
+        app:layout_constraintEnd_toEndOf="@+id/calendario"
+        app:layout_constraintStart_toStartOf="@+id/campo_data_reparo"
+        app:layout_constraintTop_toBottomOf="@+id/campo_data_reparo" />
 
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

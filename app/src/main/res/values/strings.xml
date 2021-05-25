@@ -9,7 +9,9 @@
     <string name="numero">Número</string>
     <string name="bairro">Bairro</string>
     <string name="telefone">Telefone</string>
-    <string name="cadastrar_cliente">Cadastro de Clientes</string>
+    <string name="cadastrar_cliente">Cadastrar Clientes</string>
+    <string name="atualizar_cliente">Atualizar Clientes</string>
+    <string name="title_atualizacao_cliente">Atualização de Clientes</string>
     <string name="title_cadastro_servico">Cadastrar Serviço</string>
     <string name="descricao_servico">Descrição do Serviço</string>
     <string name="tipo_servico">Tipo de Serviço</string>
@@ -23,6 +25,9 @@
     <string name="calendario">Calendário</string>
     <string name="ddd">DDD</string>
     <string name="estado">Estado</string>
+    <string name="deletar_receitas">Deletar Clientes</string>
+    <string name="search">Pesquisar Clientes</string>
+    <string name="Relatorio">Relatório</string>
     <string-array name="list_servicos">
         <item>Fogão</item>
         <item>Geladeira</item>

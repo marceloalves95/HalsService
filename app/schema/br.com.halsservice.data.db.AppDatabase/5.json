@@ -1,0 +1,168 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 5,
+    "identityHash": "9130801d99bc856573fd96e5838a6d5b",
+    "entities": [
+      {
+        "tableName": "cliente",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`clienteId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `nome` TEXT NOT NULL, `endereco` TEXT NOT NULL, `numero` INTEGER NOT NULL, `bairro` TEXT NOT NULL, `estado` TEXT NOT NULL, `telefone` TEXT NOT NULL, `selected` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "clienteId",
+            "columnName": "clienteId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "nome",
+            "columnName": "nome",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "endereco",
+            "columnName": "endereco",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "numero",
+            "columnName": "numero",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "bairro",
+            "columnName": "bairro",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "estado",
+            "columnName": "estado",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "telefone",
+            "columnName": "telefone",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "selected",
+            "columnName": "selected",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "clienteId"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_cliente_telefone",
+            "unique": true,
+            "columnNames": [
+              "telefone"
+            ],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_cliente_telefone` ON `${TABLE_NAME}` (`telefone`)"
+          }
+        ],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "servico",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`servicoId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `descricao` TEXT NOT NULL, `tipo_servico` TEXT NOT NULL, `valor_servico` REAL NOT NULL, `garantia` TEXT NOT NULL, `data_reparo` TEXT NOT NULL, `fk_cliente` INTEGER NOT NULL, `selected` INTEGER NOT NULL, FOREIGN KEY(`fk_cliente`) REFERENCES `cliente`(`clienteId`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "servicoId",
+            "columnName": "servicoId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "descricao",
+            "columnName": "descricao",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "tipo_servico",
+            "columnName": "tipo_servico",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "valor_servico",
+            "columnName": "valor_servico",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "garantia",
+            "columnName": "garantia",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "data_reparo",
+            "columnName": "data_reparo",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "fk_cliente",
+            "columnName": "fk_cliente",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "selected",
+            "columnName": "selected",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "servicoId"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_servico_fk_cliente",
+            "unique": false,
+            "columnNames": [
+              "fk_cliente"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_servico_fk_cliente` ON `${TABLE_NAME}` (`fk_cliente`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "cliente",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "fk_cliente"
+            ],
+            "referencedColumns": [
+              "clienteId"
+            ]
+          }
+        ]
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '9130801d99bc856573fd96e5838a6d5b')"
+    ]
+  }
+}

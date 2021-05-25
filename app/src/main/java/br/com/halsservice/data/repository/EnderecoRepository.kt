@@ -1,8 +1,7 @@
 package br.com.halsservice.data.repository
 
 import androidx.lifecycle.liveData
-import br.com.halsservice.framework.api.ApiHelper
-import br.com.halsservice.framework.viewmodel.endereco.EnderecoViewModel
+import br.com.halsservice.network.api.ApiHelper
 import java.net.ConnectException
 
 /**

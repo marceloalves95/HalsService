@@ -25,8 +25,9 @@ data class Servico(
     val servicoId:Long,
     val descricao:String,
     val tipo_servico:String,
-    val valor_servico:String,
+    val valor_servico:Double,
     val garantia:String,
     val data_reparo:String,
-    val fk_cliente:Long
+    val fk_cliente:Long,
+    var selected:Boolean
 )

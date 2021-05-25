@@ -7,17 +7,19 @@
 
     <fragment
         android:id="@+id/navigation_cliente"
-        android:name="br.com.halsservice.presenter.ui.cliente.ClienteFragment"
+        android:name="br.com.halsservice.ui.cliente.ClienteFragment"
         android:label="@string/title_cliente"
         tools:layout="@layout/fragment_cliente" >
         <action
             android:id="@+id/action_navigation_cliente_to_navigation_cadastro_cliente"
-            app:destination="@id/navigation_cadastro_cliente" />
+            app:destination="@id/navigation_cadastro_cliente"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_right" />
     </fragment>
 
     <fragment
         android:id="@+id/navigation_servico"
-        android:name="br.com.halsservice.presenter.ui.servico.ServicoFragment"
+        android:name="br.com.halsservice.ui.servico.ServicoFragment"
         android:label="@string/title_servico"
         tools:layout="@layout/fragment_servico" >
         <action
@@ -27,16 +29,26 @@
 
     <fragment
         android:id="@+id/navigation_cadastro_cliente"
-        android:name="br.com.halsservice.presenter.ui.cliente.CadastroClienteFragment"
-        android:label="@string/title_cadastro_cliente"
+        android:name="br.com.halsservice.ui.cliente.CadastroClienteFragment"
         tools:layout="@layout/fragment_cadastro_cliente" >
         <action
             android:id="@+id/action_navigation_cadastro_cliente_to_navigation_cliente"
-            app:destination="@id/navigation_cliente" />
+            app:destination="@id/navigation_cliente"
+            app:launchSingleTop="false"
+            app:popUpToInclusive="false" />
+        <argument
+            android:name="cliente"
+            app:argType="br.com.halsservice.ui.cliente.ClienteArgs"
+            app:nullable="true"
+            android:defaultValue="@null" />
+        <argument
+            android:name="id"
+            app:argType="long"
+            android:defaultValue="0L" />
     </fragment>
     <fragment
         android:id="@+id/navigation_cadastro_servico"
-        android:name="br.com.halsservice.presenter.ui.servico.CadastroServicoFragment"
+        android:name="br.com.halsservice.ui.servico.CadastroServicoFragment"
         android:label="@string/title_cadastro_servico"
         tools:layout="@layout/fragment_cadastro_servico" >
         <action
